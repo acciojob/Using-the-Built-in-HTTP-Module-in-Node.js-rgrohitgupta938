@@ -1,8 +1,8 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-
-const filePath = process.argv[2];
+const __filename = "output.txt";
+const filePath = process.argv[2] || __filename;
 
 if (!filePath) {
   process.exit(1);
