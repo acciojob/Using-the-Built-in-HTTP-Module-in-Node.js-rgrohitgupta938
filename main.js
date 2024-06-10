@@ -15,9 +15,8 @@ const server = http.createServer((req, res) => {
   fs.readFile(absolutePath, "utf8", (err, data) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/plain" });
-      console.log("Error: Could not read the file.");
+      res.end("Error: Could not read the file.");
     } else {
-      console.log("Hello, World!");
       res.writeHead(200, { "Content-Type": "text/plain" });
       res.end(data);
     }
@@ -28,6 +27,8 @@ const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
+
+module.exports = server;
 
 // TODO: Create an HTTP server
 
