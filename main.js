@@ -3,11 +3,6 @@ const fs = require("fs");
 const path = require("path");
 
 const filePath = process.argv[2] || __filename;
-
-if (!filePath) {
-  process.exit(1);
-}
-
 const absolutePath = path.resolve(filePath);
 
 const server = http.createServer((req, res) => {
@@ -23,8 +18,11 @@ const server = http.createServer((req, res) => {
 });
 
 const PORT = 3000;
-server.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
 
-module.exports = server;
+function startServer() {
+  server.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+  });
+}
+
+module.exports = startServer;
